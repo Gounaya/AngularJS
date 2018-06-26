@@ -3,19 +3,46 @@
 <head>
   <meta charset="utf-8">
   <title>Angular5</title>
+  <style>
+      div#user{
+          background: rgb(173, 173, 173);
+          float: initial;
+          width: 150px;
+          height: 100px;
+      }
+      div#content{
+          border: solid rgb(0, 0, 0) 10px;
+          padding: 5px;
+          background: rgb(255, 255, 255);
+      }
+  </style>
 </head>
 
 <body ng-app>
-    <input type="text" ng-model="task"/>    
-    <dir ng-init="users = ['Marc','Jean','John']">
-        <ul>
-            <li ng-repeat="user in users">{{user| uppercase}}</li>
+    <input type="text" ng-model="query"/>    
+    <select ng-model="order" name="" id="">
+        <option value="username">Organiser par nom</option>
+        <option value="email">Organiser par E-mail</option>
+    </select>
+    <dir id=content ng-init=
+    "users = [{username:'Marc', email:'aarc@gmail.com'},
+              {username:'john', email:'cohn@gmail.com'},
+              {username:'pierre', email:'bierre@gmail.com'}
+             ]">
+            <div id="user" ng-repeat="user in users | filter:query | orderBy:order">
+                <p>
+                    <strong>
+                        {{user.username}}
+                    </strong>
+                    <br>
+                    <p>
+                        {{user.email}}
+                    </p>
+                </p>
+            </div>
         </ul>
     </dir>
 
-
-
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
-
 </body>
 </html>
