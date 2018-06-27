@@ -26,18 +26,18 @@
         <option value="email">Organiser par E-mail</option>
     </select>
     <dir id=content ng-init=
-    "users = [{username:'Marc', email:'aarc@gmail.com'},
+    "comment = [{username:'Marc', email:'aarc@gmail.com'},
               {username:'john', email:'cohn@gmail.com'},
               {username:'pierre', email:'bierre@gmail.com'}
              ]">
-            <div id="user" ng-repeat="user in users | filter:query | orderBy:order">
+            <div id="user" ng-repeat="comment in comments | filter:query | orderBy:order">
                 <p>
                     <strong>
-                        {{user.username}}
+                        {{comment.username}}
                     </strong>
                     <br>
                     <p>
-                        {{user.email}}
+                        {{comment.email}}
                     </p>
                 </p>
             </div>
