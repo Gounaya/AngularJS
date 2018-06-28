@@ -5,9 +5,10 @@
 </head>
 
 <!-- modules : keep the system more organized and to avoid mix a little of everything -->
-<body ng-app> <!--before it was just a ng-app-->
+
+<body ng-app="AngularAPP"> <!--before it was just a ng-app-->
     <div ng-controller="CommentsCtrl">
-        <input type="text" ng-model="query"/>    
+        <input type="text" ng-model="query"/>{{query}}
         <select ng-model="order">
             <option value="username">Organiser par nom</option>
             <option value="content">Organiser par contenu</option>
@@ -24,9 +25,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
     
     <script>
-        var app = angular.module('AngularAPP',[]);
-        app.controllerr('CommentsCtrl', function($scope){
-
+        var app = angular.module('AngularAPP',[]) // table to inject to the my application dfferent modules
+        app.controller('CommentsCtrl', function($scope){
             $scope.comments = [
             {
                 "username": "Rowena",
@@ -45,10 +45,23 @@
                 "city": "Delwood",
                 "email": "karendodson@futurity.com",
                 "content": "In esse consequat duis duis consequat fugiat culpa non tempor."
+            },
+            {
+                "username": "House",
+                "city": "Witmer",
+                "email": "housedodson@futurity.com",
+                "content": "Lorem cupidatat in reprehenderit eiusmod et."
+            },
+            {
+                "username": "Sosa",
+                "city": "Glidden",
+                "email": "sosadodson@futurity.com",
+                "content": "Minim duis voluptate laboris eu dolore esse occaecat enim culpa et esse adipisicing."
             }
             ];
         });
 
     </script>
 </body>
+<!-- angular-ui (site) : style code  -->
 </html>

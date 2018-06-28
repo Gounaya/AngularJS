@@ -3,33 +3,18 @@
 <head>
   <meta charset="utf-8">
   <title>Angular</title>
-  <style>
-      /* div#user{
-          background: rgb(228, 228, 228);
-          float: initial;
-          width: 150px;
-          height: 100px;
-      }
-      div#contenu{
-          border: solid rgb(148, 12, 12) 2px;
-          padding-top: 50%;
-          float: none;
-          padding: 5px;
-          background: rgb(255, 255, 255);
-      } */
-  </style>
+  
 </head>
 
 <body ng-app> <!--before it was just a ng-app-->
-    <input type="text" ng-model="query"/>    
-    <select ng-model="order">
-        <option value="username">Organiser par nom</option>
-        <option value="content">Organiser par contenu</option>
-    </select>
-
     <div ng-controller="CommentsCtrl">
-        <div ng-repeat="comment in comments | 
-        filter:{content: query} | orderBy:order">
+        <input type="text" ng-model="query"/>{{query}}
+        <select ng-model="order">
+            <option value="username">Organiser par nom</option>
+            <option value="content">Organiser par contenu</option>
+        </select>
+
+        <div ng-repeat="comment in comments | filter:{content: query} | orderBy:order">
             <p>
                 <strong>{{comment.username}}</strong><br>
                 {{comment.content}}
@@ -41,7 +26,6 @@
     
     <script>
         function CommentsCtrl($scope){
-            console.log($scope);
             $scope.comments = [
             {
                 "username": "Rowena",
@@ -60,18 +44,6 @@
                 "city": "Delwood",
                 "email": "karendodson@futurity.com",
                 "content": "In esse consequat duis duis consequat fugiat culpa non tempor."
-            },
-            {
-                "username": "House",
-                "city": "Witmer",
-                "email": "housedodson@futurity.com",
-                "content": "Lorem cupidatat in reprehenderit eiusmod et."
-            },
-            {
-                "username": "Sosa",
-                "city": "Glidden",
-                "email": "sosadodson@futurity.com",
-                "content": "Minim duis voluptate laboris eu dolore esse occaecat enim culpa et esse adipisicing."
             }
             ];
         }
