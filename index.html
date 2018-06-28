@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>Angular5</title>
   <style>
-      div#user{
+      /* div#user{
           background: rgb(228, 228, 228);
           float: initial;
           width: 150px;
@@ -16,13 +16,13 @@
           float: none;
           padding: 5px;
           background: rgb(255, 255, 255);
-      }
+      } */
   </style>
 </head>
 
 <body ng-controller="CommentsCtrl"> <!--before it was just a ng-app-->
     <input type="text" ng-model="query"/>    
-    <select ng-model="order" name="" id="">
+    <select ng-model="order">
         <option value="username">Organiser par nom</option>
         <option value="content">Organiser par contenu</option>
     </select>
@@ -31,7 +31,7 @@
         <div ng-repeat="comment in comments | 
         filter:{content: query} | orderBy:order">
             <p>
-                <strong> {{comment.username}} </strong><br>
+                <strong>{{comment.username}}</strong><br>
                 {{comment.content}}
             </p>
         </div>
